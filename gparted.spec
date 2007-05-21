@@ -23,8 +23,6 @@ and copying of partitions.
 %setup -q
 
 %build
-#(sb) hardcoded Gentoo libtool version?
-sed -i 's/1.5.22/1.5.20/' configure
 %configure
 %make
 
