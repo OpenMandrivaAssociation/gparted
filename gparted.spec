@@ -1,17 +1,17 @@
 Summary:    GParted is a graphical frontend to libparted
 Name:       gparted
 Version:    0.3.3
-Release:    %mkrel 3
+Release:    %mkrel 5
 License:    GPL
 Group:      System/Kernel and hardware      
 
 Source:     http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:     gparted-0.3.3-desktop.patch
 Url:        http://%{name}.sourceforge.net/
 BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
 BuildRequires:  gtkmm2.4-devel
 BuildRequires:  ImageMagick
-BuildRequires:	desktop-file-utils
 Requires:   usermode-consoleonly
 
 %description
@@ -21,35 +21,16 @@ and copying of partitions.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
 rm -fr %buildroot
 %makeinstall
 %find_lang %name
-
-#menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): \
-command="gparted" \
-icon="%{name}.png" \
-needs="x11" \
-title="Gparted" \
-longtitle="GNOME Partition Editor" \
-section="System/Configuration/Hardware" \
-xdg="true"
-EOF
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="Settings" \
-  --add-category="HardwareSettings" \
-  --add-category="X-MandrivaLinux-System-Configuration-Other" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 #icons
 mkdir -p $RPM_BUILD_ROOT/{%_liconsdir,%_iconsdir,%_miconsdir}
@@ -79,10 +60,7 @@ rm -fr %buildroot
 %{_bindir}/%{name}
 %{_sbindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
-
-
