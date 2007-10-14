@@ -1,7 +1,7 @@
 Summary:    GParted is a graphical frontend to libparted
 Name:       gparted
 Version:    0.3.3
-Release:    %mkrel 5
+Release:    %mkrel 4
 License:    GPL
 Group:      System/Kernel and hardware      
 
