@@ -8,7 +8,6 @@ Group:      System/Kernel and hardware
 Source:     http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:     gparted-0.3.3-desktop.patch
 Url:        http://%{name}.sourceforge.net/
-BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
 BuildRequires:  gtkmm2.4-devel
 BuildRequires:  ImageMagick
