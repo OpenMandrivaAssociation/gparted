@@ -28,7 +28,7 @@ and copying of partitions.
 %prep
 %setup -q
 %patch0 -p0
-#%patch100 -p0 -b .hal
+%patch100 -p0 -b .hal
 %patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
 
@@ -38,7 +38,7 @@ and copying of partitions.
 
 %install
 rm -fr %buildroot
-%makeinstall
+%makeinstall_std
 %find_lang %name
 
 #icons
