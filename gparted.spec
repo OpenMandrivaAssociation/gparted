@@ -1,8 +1,8 @@
 Summary:    GParted is a graphical frontend to libparted
 Name:       gparted
-Version:    0.3.3
-Release:    %mkrel 6
-License:    GPL
+Version:    0.3.5
+Release:    %mkrel 1
+License:    GPLv2+
 Group:      System/Kernel and hardware      
 
 Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
@@ -11,7 +11,6 @@ Source2:    gparted-console.apps
 Source3:    gparted-pam.d
 Patch0:     gparted-0.3.3-desktop.patch
 Patch100:   gparted-dont-lock-hal.patch
-Patch101:   gparted-devices.patch
 Patch102:   gparted-realpath-fix.patch
 Patch103:   gparted-refresh_crash-fix.patch
 Url:        http://gparted.sourceforge.net
@@ -29,8 +28,7 @@ and copying of partitions.
 %prep
 %setup -q
 %patch0 -p0
-%patch100 -p0 -b .hal
-%patch101 -p0 -b .devs
+#%patch100 -p0 -b .hal
 %patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
 
