@@ -1,4 +1,4 @@
-Summary:    GParted is a graphical frontend to libparted
+Summary:    Graphical frontend to libparted
 Name:       gparted
 Version:    0.3.5
 Release:    %mkrel 1
