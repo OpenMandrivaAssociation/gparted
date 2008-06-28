@@ -16,6 +16,7 @@ BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
 BuildRequires:  gtkmm2.4-devel
 BuildRequires:  ImageMagick
+BuildRequires:	destkop-file-utils
 Requires:   usermode-consoleonly
 
 %description
