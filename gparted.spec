@@ -9,7 +9,6 @@ Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz
 Source1:    run-gparted
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
-Patch100:   gparted-dont-lock-hal.patch
 Patch102:   gparted-realpath-fix.patch
 Patch103:   gparted-refresh_crash-fix.patch
 Url:        http://gparted.sourceforge.net
@@ -26,7 +25,6 @@ and copying of partitions.
 
 %prep
 %setup -q
-#%patch100 -p0 -b .hal
 %patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
 
