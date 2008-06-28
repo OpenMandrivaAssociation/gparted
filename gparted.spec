@@ -1,6 +1,6 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
-Version:    0.3.6
+Version:    0.3.7
 Release:    %mkrel 1
 License:    GPLv2+
 Group:      System/Kernel and hardware      
@@ -27,8 +27,8 @@ and copying of partitions.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch100 -p0 -b .hal
+#%patch0 -p0
+#%patch100 -p0 -b .hal
 %patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
 
@@ -48,12 +48,11 @@ install pixmaps/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 convert pixmaps/%{name}.png -geometry 16x16 %{buildroot}%{_miconsdir}/%{name}.png
 
 # Create a helper script to launch gparted using hal-lock
+mkdir -p %buildroot%_bindir
 cp %{SOURCE1} %{buildroot}%{_bindir}/
 chmod 755 %{buildroot}%{_bindir}/run-gparted
 
 #consolehelper
-install -d $RPM_BUILD_ROOT%{_sbindir}
-mv $RPM_BUILD_ROOT%{_bindir}/gparted $RPM_BUILD_ROOT%{_sbindir}
 ln -sf consolehelper $RPM_BUILD_ROOT%{_bindir}/gparted
 
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
@@ -87,11 +86,12 @@ fi
 %doc AUTHORS README COPYING ChangeLog
 %{_bindir}/%{name}
 %{_bindir}/run-gparted
-%{_sbindir}/%{name}
+%{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
+%{_mandir}/man8/*
 %config(noreplace) %{_sysconfdir}/pam.d/gparted
 %config(noreplace) %{_sysconfdir}/security/console.apps/gparted
