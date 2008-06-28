@@ -9,7 +9,6 @@ Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz
 Source1:    run-gparted
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
-Patch0:     gparted-0.3.3-desktop.patch
 Patch100:   gparted-dont-lock-hal.patch
 Patch102:   gparted-realpath-fix.patch
 Patch103:   gparted-refresh_crash-fix.patch
@@ -27,7 +26,6 @@ and copying of partitions.
 
 %prep
 %setup -q
-#%patch0 -p0
 #%patch100 -p0 -b .hal
 %patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
@@ -60,6 +58,11 @@ cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
 
 mkdir -p %{buildroot}%{_sysconfdir}/pam.d
 cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
+
+desktop-file-install --vendor='' \
+	--dir %buildroot%_datadir/applications/ \
+	--add-category='GTK;HardwareSettings;Settings' \
+	%buildroot%_datadir/applications/*.desktop
 
 %clean
 rm -fr %buildroot
