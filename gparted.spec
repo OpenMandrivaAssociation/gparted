@@ -1,6 +1,6 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
-Version:    0.3.8
+Version:    0.3.9
 Release:    %mkrel 1
 License:    GPLv2+
 Group:      System/Kernel and hardware      
@@ -95,5 +95,7 @@ fi
 %{_miconsdir}/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
 %{_mandir}/man8/*
+%{_datadir}/gnome/help/%{name}/*/%{name}.xml
+%{_datadir}/omf/%{name}/%{name}-*.omf
 %config(noreplace) %{_sysconfdir}/pam.d/gparted
 %config(noreplace) %{_sysconfdir}/security/console.apps/gparted
