@@ -1,6 +1,6 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
-Version:    0.3.9
+Version:    0.4.0
 Release:    %mkrel 1
 License:    GPLv2+
 Group:      System/Kernel and hardware      
@@ -38,12 +38,6 @@ and copying of partitions.
 rm -fr %buildroot
 %makeinstall_std
 %find_lang %name
-
-#icons
-mkdir -p $RPM_BUILD_ROOT/{%_liconsdir,%_iconsdir,%_miconsdir}
-convert pixmaps/%{name}.png -geometry 32x32 %{buildroot}%{_iconsdir}/%{name}.png
-install pixmaps/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
-convert pixmaps/%{name}.png -geometry 16x16 %{buildroot}%{_miconsdir}/%{name}.png
 
 # Create a helper script to launch gparted using hal-lock
 mkdir -p %buildroot%_bindir
@@ -91,9 +85,6 @@ fi
 %{_bindir}/run-gparted
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_liconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
 %{_datadir}/pixmaps/%{name}.png
 %{_mandir}/man8/*
 %{_datadir}/gnome/help/%{name}/*/%{name}.xml
