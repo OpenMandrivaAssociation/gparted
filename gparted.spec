@@ -85,7 +85,7 @@ fi
 %{_bindir}/run-gparted
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{name}.png
+%{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
 %{_datadir}/gnome/help/%{name}/*/%{name}.xml
 %{_datadir}/omf/%{name}/%{name}-*.omf
