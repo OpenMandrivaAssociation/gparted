@@ -15,7 +15,7 @@ Url:        http://gparted.sourceforge.net
 BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
 BuildRequires:  gtkmm2.4-devel
-BuildRequires:  ImageMagick
+BuildRequires:  imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	gnome-doc-utils
 Requires:   usermode-consoleonly
