@@ -37,7 +37,7 @@ and copying of partitions.
 %install
 rm -fr %buildroot
 %makeinstall_std
-%find_lang %name
+%find_lang %name --with-gnome
 
 # Create a helper script to launch gparted using hal-lock
 mkdir -p %buildroot%_bindir
