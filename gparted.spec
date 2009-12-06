@@ -18,6 +18,7 @@ BuildRequires:  gtkmm2.4-devel
 BuildRequires:  imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	gnome-doc-utils
+BuildRequires:	intltool
 Requires:   usermode-consoleonly
 
 %description
@@ -31,6 +32,8 @@ and copying of partitions.
 %patch103 -p0 -b .refresh
 
 %build
+# fwang: autoreconf is needed, otherwise old version of intltool shipped with tarball will be used
+autoreconf -fi
 %configure2_5x
 %make
 
