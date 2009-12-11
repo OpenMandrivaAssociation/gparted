@@ -42,6 +42,7 @@ rm -fr %buildroot
 %find_lang %name --with-gnome
 
 #consolehelper
+mkdir -p %buildroot%{_bindir}
 ln -sf consolehelper $RPM_BUILD_ROOT%{_bindir}/gparted
 sed -i 's|%_sbindir|%_bindir|' %buildroot%_datadir/applications/*.desktop
 
