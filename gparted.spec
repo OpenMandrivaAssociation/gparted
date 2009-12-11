@@ -1,12 +1,11 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
 Version:    0.5.0
-Release:    %mkrel 1
+Release:    %mkrel 2
 License:    GPLv2+
 Group:      System/Kernel and hardware      
 
 Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-Source1:    run-gparted
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
 Patch102:   gparted-realpath-fix.patch
@@ -42,13 +41,9 @@ rm -fr %buildroot
 %makeinstall_std
 %find_lang %name --with-gnome
 
-# Create a helper script to launch gparted using hal-lock
-mkdir -p %buildroot%_bindir
-cp %{SOURCE1} %{buildroot}%{_bindir}/
-chmod 755 %{buildroot}%{_bindir}/run-gparted
-
 #consolehelper
 ln -sf consolehelper $RPM_BUILD_ROOT%{_bindir}/gparted
+sed -i 's|%_sbindir|%_bindir|' %buildroot%_datadir/applications/*.desktop
 
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
 cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
@@ -85,7 +80,6 @@ fi
 %defattr(-,root,root)
 %doc AUTHORS README COPYING ChangeLog
 %{_bindir}/%{name}
-%{_bindir}/run-gparted
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/*
