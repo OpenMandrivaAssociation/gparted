@@ -1,7 +1,7 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
 Version:    0.5.0
-Release:    %mkrel 3
+Release:    %mkrel 4
 License:    GPLv2+
 Group:      System/Kernel and hardware      
 
