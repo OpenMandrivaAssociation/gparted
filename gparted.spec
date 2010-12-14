@@ -1,6 +1,6 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
-Version:    0.7.0
+Version:    0.7.1
 Release:    %mkrel 1
 License:    GPLv2+
 Group:      System/Kernel and hardware      
@@ -8,7 +8,6 @@ Group:      System/Kernel and hardware
 Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
-Patch102:   gparted-realpath-fix.patch
 Patch103:   gparted-refresh_crash-fix.patch
 Url:        http://gparted.sourceforge.net
 BuildRoot:  %_tmppath/%name-%version-root
@@ -27,7 +26,6 @@ and copying of partitions.
 
 %prep
 %setup -q
-%patch102 -p0 -b .realpath
 %patch103 -p0 -b .refresh
 
 %build
