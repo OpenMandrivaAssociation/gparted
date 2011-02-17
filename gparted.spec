@@ -1,6 +1,6 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
-Version:    0.7.1
+Version:    0.8.0
 Release:    %mkrel 1
 License:    GPLv2+
 Group:      System/Kernel and hardware      
@@ -8,7 +8,6 @@ Group:      System/Kernel and hardware
 Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
-Patch103:   gparted-refresh_crash-fix.patch
 Url:        http://gparted.sourceforge.net
 BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
@@ -17,6 +16,7 @@ BuildRequires:  imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
+BuildRequires:	sigc++2.0-devel
 Requires:   usermode-consoleonly
 
 %description
@@ -26,7 +26,6 @@ and copying of partitions.
 
 %prep
 %setup -q
-%patch103 -p0 -b .refresh
 
 %build
 # fwang: autoreconf is needed, otherwise old version of intltool shipped with tarball will be used
