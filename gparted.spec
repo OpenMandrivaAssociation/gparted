@@ -1,13 +1,14 @@
 Summary:    Graphical frontend to libparted
 Name:       gparted
 Version:    0.8.1
-Release:    %mkrel 1
+Release:    %mkrel 2
 License:    GPLv2+
 Group:      System/Kernel and hardware      
 
 Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:    gparted-console.apps
 Source3:    gparted-pam.d
+Patch0:     gparted-0.8.1-parted3.patch
 Url:        http://gparted.sourceforge.net
 BuildRoot:  %_tmppath/%name-%version-root
 BuildRequires:  parted-devel >= 1.6.13 
@@ -26,6 +27,7 @@ and copying of partitions.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 # fwang: autoreconf is needed, otherwise old version of intltool shipped with tarball will be used
