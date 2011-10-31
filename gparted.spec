@@ -1,24 +1,22 @@
-Summary:    Graphical frontend to libparted
-Name:       gparted
-Version:    0.8.1
-Release:    %mkrel 2
-License:    GPLv2+
-Group:      System/Kernel and hardware      
-
-Source0:    http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-Source2:    gparted-console.apps
-Source3:    gparted-pam.d
-Patch0:     gparted-0.8.1-parted3.patch
-Url:        http://gparted.sourceforge.net
-BuildRoot:  %_tmppath/%name-%version-root
-BuildRequires:  parted-devel >= 1.6.13 
-BuildRequires:  gtkmm2.4-devel
-BuildRequires:  imagemagick
+Summary:	Graphical frontend to libparted
+Name:		gparted
+Version:	0.9.1
+Release:	%mkrel 1
+License:	GPLv2+
+Group:		System/Kernel and hardware      
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source2:	gparted-console.apps
+Source3:	gparted-pam.d
+Url:		http://gparted.sourceforge.net
+BuildRoot:	%_tmppath/%name-%version-root
+BuildRequires:	parted-devel >= 1.6.13 
+BuildRequires:	gtkmm2.4-devel
+BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	sigc++2.0-devel
-Requires:   usermode-consoleonly
+Requires:	usermode-consoleonly
 
 %description
 GParted stands for Gnome Partition Editor and is a graphical frontend to 
@@ -27,12 +25,11 @@ and copying of partitions.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 # fwang: autoreconf is needed, otherwise old version of intltool shipped with tarball will be used
 autoreconf -fi
-%configure2_5x
+%configure2_5x --enable-libparted-dmraid
 %make
 
 %install
@@ -41,9 +38,9 @@ rm -fr %buildroot
 %find_lang %name --with-gnome
 
 #consolehelper
-mkdir -p %buildroot%{_bindir}
-ln -sf consolehelper $RPM_BUILD_ROOT%{_bindir}/gparted
-sed -i 's|%_sbindir|%_bindir|' %buildroot%_datadir/applications/*.desktop
+mkdir -p %{buildroot}%{_bindir}
+ln -sf consolehelper %{buildroot}%{_bindir}/gparted
+sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
 
 mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
 cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
@@ -52,9 +49,9 @@ mkdir -p %{buildroot}%{_sysconfdir}/pam.d
 cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
 
 desktop-file-install --vendor='' \
-	--dir %buildroot%_datadir/applications/ \
+	--dir %{buildroot}%{_datadir}/applications/ \
 	--add-category='GTK;HardwareSettings;Settings' \
-	%buildroot%_datadir/applications/*.desktop
+	%{buildroot}%{_datadir}/applications/*.desktop
 
 %clean
 rm -fr %buildroot
