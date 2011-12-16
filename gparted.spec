@@ -1,14 +1,14 @@
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.10.0
-Release:	2
+Version:	0.11.0
+Release:	%mkrel 1
 License:	GPLv2+
-Group:		System/Kernel and hardware   
+Group:		System/Kernel and hardware
 URL:		http://gparted.sourceforge.net
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
-BuildRequires:	parted-devel >= 1.6.13 
+BuildRequires:	parted-devel >= 1.7.1
 BuildRequires:	gtkmm2.4-devel
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
@@ -32,9 +32,9 @@ autoreconf -fi
 %make
 
 %install
-rm -fr %buildroot
+rm -fr %{buildroot}
 %makeinstall_std
-%find_lang %name --with-gnome
+%find_lang %{name} --with-gnome
 
 #consolehelper
 mkdir -p %{buildroot}%{_bindir}
@@ -52,6 +52,9 @@ desktop-file-install --vendor='' \
 	--remove-category=GNOME \
 	--add-category='GTK;HardwareSettings;Settings' \
 	%{buildroot}%{_datadir}/applications/*.desktop
+
+%clean
+rm -fr %{buildroot}
 
 %preun
 if [ $1 -ge 0 ]; then
