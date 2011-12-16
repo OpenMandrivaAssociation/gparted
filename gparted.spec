@@ -9,6 +9,7 @@ Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
 BuildRequires:	parted-devel >= 1.7.1
+BuildRequires:	libuuid-devel
 BuildRequires:	gtkmm2.4-devel
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
