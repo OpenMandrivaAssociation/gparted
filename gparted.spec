@@ -1,6 +1,6 @@
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.11.0
+Version:	0.12.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -33,20 +33,20 @@ autoreconf -fi
 %make
 
 %install
-rm -fr %{buildroot}
+%__rm -fr %{buildroot}
 %makeinstall_std
 %find_lang %{name} --with-gnome
 
 #consolehelper
-mkdir -p %{buildroot}%{_bindir}
-ln -sf consolehelper %{buildroot}%{_bindir}/gparted
-sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
+%__mkdir_p %{buildroot}%{_bindir}
+%__ln_s consolehelper %{buildroot}%{_bindir}/gparted
+%__sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
 
-mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
-cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
+%__mkdir_p %{buildroot}%{_sysconfdir}/security/console.apps
+%__cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
 
-mkdir -p %{buildroot}%{_sysconfdir}/pam.d
-cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
+%__mkdir_p %{buildroot}%{_sysconfdir}/pam.d
+%__cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
 
 desktop-file-install --vendor='' \
 	--dir %{buildroot}%{_datadir}/applications/ \
@@ -55,7 +55,7 @@ desktop-file-install --vendor='' \
 	%{buildroot}%{_datadir}/applications/*.desktop
 
 %clean
-rm -fr %{buildroot}
+%__rm -fr %{buildroot}
 
 %preun
 if [ $1 -ge 0 ]; then
