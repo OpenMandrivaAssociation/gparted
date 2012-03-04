@@ -1,4 +1,4 @@
-%define _duplicate_files_terminate_build 0
+%define _files_listed_twice_terminate_build 0
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
