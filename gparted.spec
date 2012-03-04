@@ -1,3 +1,5 @@
+%define _duplicate_files_terminate_build 0
+
 Summary:	Graphical frontend to libparted
 Name:		gparted
 Version:	0.12.0
