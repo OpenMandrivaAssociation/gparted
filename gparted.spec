@@ -3,7 +3,7 @@
 Summary:	Graphical frontend to libparted
 Name:		gparted
 Version:	0.12.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://gparted.sourceforge.net
