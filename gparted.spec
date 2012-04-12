@@ -71,6 +71,8 @@ fi
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
-#%{_datadir}/omf/%{name}/
 %config(noreplace) %{_sysconfdir}/pam.d/gparted
 %config(noreplace) %{_sysconfdir}/security/console.apps/gparted
+%if %{mdvver} < 201200
+%{_datadir}/omf/%{name}/
+%endif
