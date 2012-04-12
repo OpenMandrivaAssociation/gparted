@@ -2,8 +2,8 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.12.0
-Release:	%mkrel 2
+Version:	0.12.1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://gparted.sourceforge.net
@@ -56,9 +56,6 @@ desktop-file-install --vendor='' \
 	--add-category='GTK;HardwareSettings;Settings' \
 	%{buildroot}%{_datadir}/applications/*.desktop
 
-%clean
-%__rm -fr %{buildroot}
-
 %preun
 if [ $1 -ge 0 ]; then
     if [ -a %{_datadir}/hal/fdi/policy/gparted-disable-automount.fdi ]; then
@@ -73,6 +70,6 @@ fi
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
-%{_datadir}/omf/%{name}/
+#%{_datadir}/omf/%{name}/
 %config(noreplace) %{_sysconfdir}/pam.d/gparted
 %config(noreplace) %{_sysconfdir}/security/console.apps/gparted
