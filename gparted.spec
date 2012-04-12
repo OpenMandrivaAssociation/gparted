@@ -18,6 +18,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	gnome-doc-utils
 BuildRequires:	intltool
 BuildRequires:	sigc++2.0-devel
+BuildRequires:	rarian
 Requires:	usermode-consoleonly
 
 %description
