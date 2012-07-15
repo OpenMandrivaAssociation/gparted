@@ -2,22 +2,22 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.12.1
-Release:	%mkrel 1
+Version:	0.13.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://gparted.sourceforge.net
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
-BuildRequires:	parted-devel >= 1.7.1
-BuildRequires:	libuuid-devel
-BuildRequires:	gtkmm2.4-devel
-BuildRequires:	imagemagick
+BuildRequires:	pkgconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gtkmm-2.4)
+BuildRequires:	pkgconfig(libparted)
+BuildRequires:	pkgconfig(sigc++-2.0)
+BuildRequires:	pkgconfig(uuid)
 BuildRequires:	desktop-file-utils
-BuildRequires:	gnome-doc-utils
+BuildRequires:	imagemagick
 BuildRequires:	intltool
-BuildRequires:	sigc++2.0-devel
 BuildRequires:	rarian
 Requires:	usermode-consoleonly
 
