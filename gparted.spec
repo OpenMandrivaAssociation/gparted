@@ -2,12 +2,12 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.13.0
+Version:	0.13.1
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 URL:		http://gparted.sourceforge.net
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/project/gparted/%{name}/%{name}-%{version}/%{name}-%{version}.tar.bz2
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
 BuildRequires:	pkgconfig(gnome-doc-utils)
