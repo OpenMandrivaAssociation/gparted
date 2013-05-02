@@ -6,7 +6,7 @@ Version:	0.14.1
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
-URL:		http://gparted.sourceforge.net
+Url:		http://gparted.sourceforge.net
 Source0:	http://downloads.sourceforge.net/project/gparted/%{name}/%{name}-%{version}/%{name}-%{version}.tar.bz2
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
@@ -29,10 +29,9 @@ and copying of partitions.
 
 %prep
 %setup -q
+autoreconf -fi
 
 %build
-# fwang: autoreconf is needed, otherwise old version of intltool shipped with tarball will be used
-autoreconf -fi
 %configure2_5x --enable-libparted-dmraid
 %make
 
@@ -41,15 +40,15 @@ autoreconf -fi
 %find_lang %{name} --with-gnome
 
 #consolehelper
-%__mkdir_p %{buildroot}%{_bindir}
-%__ln_s consolehelper %{buildroot}%{_bindir}/gparted
-%__sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
+mkdir -p %{buildroot}%{_bindir}
+ln -s consolehelper %{buildroot}%{_bindir}/gparted
+sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
 
-%__mkdir_p %{buildroot}%{_sysconfdir}/security/console.apps
-%__cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
+mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
+cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
 
-%__mkdir_p %{buildroot}%{_sysconfdir}/pam.d
-%__cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
+mkdir -p %{buildroot}%{_sysconfdir}/pam.d
+cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
 
 desktop-file-install --vendor='' \
 	--dir %{buildroot}%{_datadir}/applications/ \
@@ -66,14 +65,14 @@ fi
 
 %files -f %{name}.lang
 %doc AUTHORS README COPYING ChangeLog
+%config(noreplace) %{_sysconfdir}/pam.d/gparted
+%config(noreplace) %{_sysconfdir}/security/console.apps/gparted
 %{_bindir}/%{name}
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/*
-%{_mandir}/man8/*
-%config(noreplace) %{_sysconfdir}/pam.d/gparted
-%config(noreplace) %{_sysconfdir}/security/console.apps/gparted
 %if %{mdvver} < 201200
 %{_datadir}/omf/%{name}/
 %endif
+%{_iconsdir}/hicolor/*/apps/*
+%{_mandir}/man8/*
 
