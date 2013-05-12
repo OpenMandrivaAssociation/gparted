@@ -1,2 +1,4 @@
+removed_sources:
+  gparted-0.14.1.tar.bz2: 2642bad0d95a71549869bdb2af0365b10854822f
 sources:
-  "gparted-0.14.1.tar.bz2": 2642bad0d95a71549869bdb2af0365b10854822f
+  gparted-0.16.1.tar.bz2: c71225a6ac3caf05df21d3a38489e465bdac424c
