@@ -2,8 +2,8 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.16.2
-Release:	7
+Version:	0.20.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://gparted.sourceforge.net
@@ -29,10 +29,9 @@ and copying of partitions.
 
 %prep
 %setup -q
-autoreconf -fi
 
 %build
-%configure2_5x --enable-libparted-dmraid
+%configure --enable-libparted-dmraid
 %make
 
 %install
@@ -70,9 +69,7 @@ fi
 %{_bindir}/%{name}
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%if %{mdvver} < 201200
-%{_datadir}/omf/%{name}/
-%endif
+%{_datadir}/appdata/%{name}.appdata.xml
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
 
