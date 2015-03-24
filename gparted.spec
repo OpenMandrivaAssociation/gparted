@@ -2,8 +2,8 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.16.1
-Release:	2
+Version:	0.22.0
+Release:	0.1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://gparted.sourceforge.net
@@ -15,12 +15,12 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
 BuildRequires:	intltool
 BuildRequires:	rarian
-Requires:	usermode-consoleonly
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtkmm-2.4)
 BuildRequires:	pkgconfig(libparted)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	pkgconfig(uuid)
+Requires:		usermode-consoleonly
 
 %description
 GParted stands for Gnome Partition Editor and is a graphical frontend to 
@@ -29,7 +29,6 @@ and copying of partitions.
 
 %prep
 %setup -q
-autoreconf -fi
 
 %build
 %configure2_5x --enable-libparted-dmraid
@@ -70,9 +69,7 @@ fi
 %{_bindir}/%{name}
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%if %{mdvver} < 201200
-%{_datadir}/omf/%{name}/
-%endif
+%{_datadir}/appdata/%{name}.appdata.xml
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
 
