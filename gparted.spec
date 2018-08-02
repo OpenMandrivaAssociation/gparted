@@ -64,8 +64,8 @@ fi
 
 %files -f %{name}.lang
 %doc AUTHORS README COPYING ChangeLog
-%config(noreplace) %{_sysconfdir}/pam.d/gparted
-%config(noreplace) %{_sysconfdir}/security/console.apps/gparted
+#config(noreplace) %{_sysconfdir}/pam.d/gparted
+#config(noreplace) %{_sysconfdir}/security/console.apps/gparted
 %{_bindir}/%{name}
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
