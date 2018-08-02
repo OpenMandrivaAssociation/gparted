@@ -2,14 +2,14 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.22.0
-Release:	3
+Version:	0.31.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
-Url:		http://gparted.sourceforge.net
-Source0:	http://downloads.sourceforge.net/project/gparted/%{name}/%{name}-%{version}/%{name}-%{version}.tar.bz2
-Source2:	gparted-console.apps
-Source3:	gparted-pam.d
+Url:		https://gparted.org/
+Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{version}/%{name}-%{version}.tar.gz
+#Source2:	gparted-console.apps
+#Source3:	gparted-pam.d
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
@@ -39,15 +39,15 @@ and copying of partitions.
 %find_lang %{name} --with-gnome
 
 #consolehelper
-mkdir -p %{buildroot}%{_bindir}
-ln -s consolehelper %{buildroot}%{_bindir}/gparted
-sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
+#mkdir -p %{buildroot}%{_bindir}
+#ln -s consolehelper %{buildroot}%{_bindir}/gparted
+#sed -i 's|%{_sbindir}|%{_bindir}|' %{buildroot}%{_datadir}/applications/*.desktop
 
-mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
-cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
+#mkdir -p %{buildroot}%{_sysconfdir}/security/console.apps
+#cp %{SOURCE2} %{buildroot}%{_sysconfdir}/security/console.apps/gparted
 
-mkdir -p %{buildroot}%{_sysconfdir}/pam.d
-cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
+#mkdir -p %{buildroot}%{_sysconfdir}/pam.d
+#cp %{SOURCE3} %{buildroot}%{_sysconfdir}/pam.d/gparted
 
 desktop-file-install --vendor='' \
 	--dir %{buildroot}%{_datadir}/applications/ \
@@ -64,8 +64,8 @@ fi
 
 %files -f %{name}.lang
 %doc AUTHORS README COPYING ChangeLog
-%config(noreplace) %{_sysconfdir}/pam.d/gparted
-%config(noreplace) %{_sysconfdir}/security/console.apps/gparted
+#config(noreplace) %{_sysconfdir}/pam.d/gparted
+#config(noreplace) %{_sysconfdir}/security/console.apps/gparted
 %{_bindir}/%{name}
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
