@@ -7,7 +7,7 @@ Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		https://gparted.org/
-Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{version}/%{name}-%{version}.tar.gz/
+Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{version}/%{name}-%{version}.tar.gz
 Source2:	gparted-console.apps
 Source3:	gparted-pam.d
 
