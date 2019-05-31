@@ -71,6 +71,7 @@ fi
 %{_sbindir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/polkit-1/actions/org.gnome.gparted.policy
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
 
