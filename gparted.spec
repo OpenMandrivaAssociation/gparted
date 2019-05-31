@@ -2,7 +2,7 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	0.33.0
+Version:	1.0.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -15,8 +15,9 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
 BuildRequires:	intltool
 BuildRequires:	rarian
+BuildRequires:	yelp-tools
 BuildRequires:	pkgconfig(gnome-doc-utils)
-BuildRequires:	pkgconfig(gtkmm-2.4)
+BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(libparted)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	pkgconfig(uuid)
@@ -32,10 +33,10 @@ and copying of partitions.
 
 %build
 %configure --enable-libparted-dmraid
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name} --with-gnome
 
 #consolehelper
