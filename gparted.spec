@@ -21,7 +21,8 @@ BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(libparted)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	pkgconfig(uuid)
-Requires:		usermode-consoleonly
+BuildRequires:	pkgconfig(polkit-agent-1)
+Requires:	usermode-consoleonly
 
 %description
 GParted stands for Gnome Partition Editor and is a graphical frontend to 
@@ -29,7 +30,7 @@ libparted. Among other features it supports creating, resizing, moving
 and copying of partitions.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %configure --enable-libparted-dmraid
@@ -55,13 +56,6 @@ desktop-file-install --vendor='' \
 	--remove-category=GNOME \
 	--add-category='GTK;HardwareSettings;Settings' \
 	%{buildroot}%{_datadir}/applications/*.desktop
-
-%preun
-if [ $1 -ge 0 ]; then
-    if [ -a %{_datadir}/hal/fdi/policy/gparted-disable-automount.fdi ]; then
-       rm -rf %{_datadir}/hal/fdi/policy/gparted-disable-automount.fdi
-    fi
-fi
 
 %files -f %{name}.lang
 %doc AUTHORS README COPYING ChangeLog
