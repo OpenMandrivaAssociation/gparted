@@ -21,8 +21,11 @@ BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(libparted)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	pkgconfig(uuid)
-BuildRequires:	pkgconfig(polkit-agent-1)
+BuildRequires:	polkit
+Requires:	polkit
 Requires:	usermode-consoleonly
+Recommends:	dosfstools
+Recommends:	mtools
 
 %description
 GParted stands for Gnome Partition Editor and is a graphical frontend to 
@@ -68,4 +71,3 @@ desktop-file-install --vendor='' \
 %{_datadir}/polkit-1/actions/org.gnome.gparted.policy
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
-
