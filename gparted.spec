@@ -65,7 +65,7 @@ desktop-file-install --vendor='' \
 #config(noreplace) %{_sysconfdir}/pam.d/gparted
 #config(noreplace) %{_sysconfdir}/security/console.apps/gparted
 %{_bindir}/%{name}
-%{_sbindir}/%{name}*
+%{_libexecdir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gparted.policy
