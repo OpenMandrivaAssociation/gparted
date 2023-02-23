@@ -11,11 +11,13 @@ Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{versio
 #Source2:	gparted-console.apps
 #Source3:	gparted-pam.d
 
+BuildRequires:	appstream
 BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
 BuildRequires:	intltool
 BuildRequires:	rarian
 BuildRequires:	yelp-tools
+BuildRequires:	pkgconfig(appstream)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(libparted)
