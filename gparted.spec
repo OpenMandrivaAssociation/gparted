@@ -12,9 +12,12 @@ Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{versio
 #Source3:	gparted-pam.d
 
 BuildRequires:	appstream
+BuildRequires:	appstream-util
 BuildRequires:	desktop-file-utils
 BuildRequires:	imagemagick
+BuildRequires:	itstool
 BuildRequires:	intltool
+BuildRequires:	gettext
 BuildRequires:	rarian
 BuildRequires:	yelp-tools
 BuildRequires:	pkgconfig(appstream)
@@ -23,6 +26,7 @@ BuildRequires:	pkgconfig(gtkmm-3.0)
 BuildRequires:	pkgconfig(libparted)
 BuildRequires:	pkgconfig(sigc++-2.0)
 BuildRequires:	pkgconfig(uuid)
+BuildRequires:	pkgconfig(polkit-agent-1)
 BuildRequires:	polkit
 Requires:	polkit
 Requires:	usermode-consoleonly
