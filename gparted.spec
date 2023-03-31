@@ -3,7 +3,7 @@
 Summary:	Graphical frontend to libparted
 Name:		gparted
 Version:	1.5.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		https://gparted.org/
