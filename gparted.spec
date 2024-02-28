@@ -2,8 +2,8 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	1.5.0
-Release:	2
+Version:	1.6.0
+Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		https://gparted.org/
@@ -73,7 +73,7 @@ desktop-file-install --vendor='' \
 %{_bindir}/%{name}
 %{_libexecdir}/%{name}*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/appdata/%{name}.appdata.xml
+%{_datadir}/metainfo/gparted.appdata.xml
 %{_datadir}/polkit-1/actions/org.gnome.gparted.policy
 %{_iconsdir}/hicolor/*/apps/*
 %{_mandir}/man8/*
