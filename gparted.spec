@@ -2,7 +2,7 @@
 
 Summary:	Graphical frontend to libparted
 Name:		gparted
-Version:	1.6.0
+Version:	1.7.0
 Release:	1
 License:	GPLv2+
 Group:		System/Kernel and hardware
@@ -32,6 +32,7 @@ Requires:	polkit
 Requires:	usermode-consoleonly
 Recommends:	dosfstools
 Recommends:	mtools
+Recommends:	bcachefs-tools
 
 %description
 GParted stands for Gnome Partition Editor and is a graphical frontend to 
