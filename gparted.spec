@@ -11,6 +11,11 @@ Source0:	https://sourceforge.net/projects/%{name}/files/%{name}/%{name}-%{versio
 #Source2:	gparted-console.apps
 #Source3:	gparted-pam.d
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	appstream
 BuildRequires:	appstream-util
 BuildRequires:	desktop-file-utils
